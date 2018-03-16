@@ -1,13 +1,16 @@
 <!DOCTYPE html>
     
 <head>
+    <!-- Link the stylesheet and js file to the html -->
     <script src="../static/timescript.js"></script>
     <link rel="stylesheet" href="../static/stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700" rel="stylesheet">
 </head>
 
 <body onload="startTime()">
-    <h2 id="txt"></h2>
+    <h2 id="txt"></h2>		<!-- This is where the current time will be displayed -->
+    
+    <!-- The input location -->
     <form action = "/" method = "post">
 	<select name="pills">
 	    <option value="pill1">Pill 1</option>
@@ -25,6 +28,7 @@
     <table cellpadding="0" cellspacing = "0" border = "0" id="pill1">
         <tbody>
 	    <p>pill 1</p>
+	    <!-- Don't touch this stuff! -->
             {% for x in range(0, Pill1_Hour_List|length) %}
                 <tr>
                      <td> {{ x }} </td>
@@ -36,6 +40,7 @@
     <table cellpadding="0" cellspacing = "0" border = "0" id="pill2">
         <tbody>
 	    <p>pill 2</p>
+		<!-- Don't touch this stuff! -->
             {% for x in range(0, Pill2_Hour_List|length) %}
                 <tr>
                      <td> {{ x }} </td>
@@ -47,6 +52,7 @@
     <table cellpadding="0" cellspacing = "0" border = "0" id="pill3">
         <tbody>
 	    <p>pill 3</p>
+		<!-- Don't touch this stuff! -->
             {% for x in range(0, Pill3_Hour_List|length) %}
                 <tr>
                      <td> {{ x }} </td>
