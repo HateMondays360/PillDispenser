@@ -9,8 +9,12 @@ URL = "0.0.0.0:80"
 
 arduinoSerialData.write('1')
 while True:
-    Hour_List = []
-    Minute_List = []
+    Pill1_Hour_List = []
+    Pill1_Minute_List = []
+    Pill2_Hour_List = []
+    Pill2_Minute_List = []
+    Pill3_Hour_List = []
+    Pill3_Minute_List = []
     # Get the website data from the URL
     r = requests.get("http://10.60.157.218")
     
@@ -19,20 +23,43 @@ while True:
     page_soup = BeautifulSoup(data, "html.parser")
 
     # Find and store all the time elements on the webpage
-    table = page_soup.findAll("td", {"class":"pillTime"})
+    pill1 = page_soup.findAll("td", {"class":"pill1Time"})
+    pill2 = page_soup.findAll("td", {"class":"pill2Time"})
+    pill3 = page_soup.findAll("td", {"class":"pill3Time"})
 
     # Loop through all elements in the list of pill times and store them in lists
-    for time in table:
-        this_time = time.text.split()
-        Hour_List.append(this_time[0])
-        Minute_List.append(this_time[2])
+    for element in pill1:
+        this_time = element.text.split()
+        Pill1_Hour_List.append(this_time[0])
+        Pill1_Minute_List.append(this_time[2])
+
+    for element in pill2:
+        this_time = element.text.split()
+        Pill2_Hour_List.append(this_time[0])
+        Pill2_Minute_List.append(this_time[2])
+
+
+    for element in pill3:
+        this_time = element.text.split()
+        Pill3_Hour_List.append(this_time[0])
+        Pill3_Minute_List.append(this_time[2])
+
 
     # Update the current time
     now = datetime.datetime.now()
     print(now)
-    for x in range(len(Hour_List)):
-        if now.hour == int(Hour_List[x]) and now.minute == int(Minute_List[x]) and now.second == 0:
+    for x in range(len(Pill1_Hour_List)):
+        if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]) and now.second == 0:
             arduinoSerialData.write('1')
-            print("yayyyyy")
-	    continue
-    # time.sleep(5)
+            print("Dispensing Pill")
+    for x in range(len(Pill2_Hour_List)):
+        if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]) and now.second == 0:
+            arduinoSerialData.write('1')
+            print("Dispensing Pill")
+    for x in range(len(Pill3_Hour_List)):
+        if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]) and now.second == 0:
+            arduinoSerialData.write('1')
+            print("Dispensing Pill")
+    time.sleep(.365)
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    
+<head>
+    <script src="../static/timescript.js"></script>
+    <link rel="stylesheet" href="../static/stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700" rel="stylesheet">
+</head>
+
+<body onload="startTime()">
+    <h2 id="txt"></h2>
+    <form action = "/" method = "post">
+	<select name="pills">
+	    <option value="pill1">Pill 1</option>
+	    <option value="pill2">Pill 2</option>
+	    <option value="pill3">Pill 3</option>
+	</select>
+        Hour: <input type="text" name="hour">
+        Minute: <input type="text" name="minute">
+	
+        <input type="submit" name = "form" value="Add Time" />
+    </form>
+
+    <p>Enter the hour in 24 hour time format and the minutes in their respective fields</p>
+    
+    <table cellpadding="0" cellspacing = "0" border = "0" id="pill1">
+        <tbody>
+	    <p>pill 1</p>
+            {% for x in range(0, Pill1_Hour_List|length) %}
+                <tr>
+                     <td> {{ x }} </td>
+                     <td class = "pill1Time"> {{ Pill1_Hour_List[x] }} : {{ Pill1_Minute_List[x] }} </td>
+                </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+    <table cellpadding="0" cellspacing = "0" border = "0" id="pill2">
+        <tbody>
+	    <p>pill 2</p>
+            {% for x in range(0, Pill2_Hour_List|length) %}
+                <tr>
+                     <td> {{ x }} </td>
+                     <td class = "pill2Time"> {{ Pill2_Hour_List[x] }} : {{ Pill2_Minute_List[x] }} </td>
+                </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+    <table cellpadding="0" cellspacing = "0" border = "0" id="pill3">
+        <tbody>
+	    <p>pill 3</p>
+            {% for x in range(0, Pill3_Hour_List|length) %}
+                <tr>
+                     <td> {{ x }} </td>
+                     <td class = "pill3Time"> {{ Pill3_Hour_List[x] }} : {{ Pill3_Minute_List[x] }} </td>
+                </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

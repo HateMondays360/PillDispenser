@@ -3,30 +3,54 @@ import serial
 import datetime
 app = Flask(__name__)
 
-Hour_List = []
-Minute_List = []
-counter = 0
+
+Pill1_Hour_List = []
+Pill1_Minute_List = []
+Pill2_Hour_List = []
+Pill2_Minute_List = []
+Pill3_Hour_List = []
+Pill3_Minute_List = []
 
 @app.route("/")
 def main():
     templateData = {
-        'Hour_List' : Hour_List,
-        'Minute_List' : Minute_List
+        'Pill1_Hour_List' : Pill1_Hour_List,
+        'Pill1_Minute_List' : Pill1_Minute_List,
+        'Pill2_Hour_List' : Pill2_Hour_List,
+        'Pill2_Minute_List' : Pill2_Minute_List,
+        'Pill3_Hour_List' : Pill3_Hour_List,
+        'Pill3_Minute_List' : Pill3_Minute_List
     }
     return render_template('arduinotime.html', **templateData)
 
 
 @app.route("/", methods = ['POST'])
 def addTime():
-    hour = request.form['hour']
-    minute = request.form['minute']
-    Minute_List.append(minute)
-    Hour_List.append(hour)
+    pillType = request.form['pills']
+    print(pillType)
+    if pillType == "pill1":
+        hour = request.form['hour']
+        minute = request.form['minute']
+        Pill1_Minute_List.append(minute)
+        Pill1_Hour_List.append(hour)
+    elif pillType == "pill2":
+        hour = request.form['hour']
+        minute = request.form['minute']
+        Pill2_Minute_List.append(minute)
+        Pill2_Hour_List.append(hour)
+    elif pillType == "pill3":
+        hour = request.form['hour']
+        minute = request.form['minute']
+        Pill3_Minute_List.append(minute)
+        Pill3_Hour_List.append(hour)
     templateData = {
-        'hour' : hour,
-        'minute' : minute,
-        'Hour_List' : Hour_List,
-        'Minute_List' : Minute_List
+        'Pill1_Hour_List' : Pill1_Hour_List,
+        'Pill1_Minute_List' : Pill1_Minute_List,
+        'Pill2_Hour_List' : Pill2_Hour_List,
+        'Pill2_Minute_List' : Pill2_Minute_List,
+        'Pill3_Hour_List' : Pill3_Hour_List,
+        'Pill3_Minute_List' : Pill3_Minute_List,
+        'pillType' : pillType
     }
     
     return render_template('arduinotime.html', **templateData)
