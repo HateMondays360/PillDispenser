@@ -49,17 +49,17 @@ while True:
     now = datetime.datetime.now()
     print(now)
     for x in range(len(Pill1_Hour_List)):
-        if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]) and now.second == 0:
+        if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]):
             arduinoSerialData.write('1')
             print("Dispensing Pill")
     for x in range(len(Pill2_Hour_List)):
-        if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]) and now.second == 0:
+        if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]):
             arduinoSerialData.write('1')
             print("Dispensing Pill")
     for x in range(len(Pill3_Hour_List)):
-        if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]) and now.second == 0:
+        if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]):
             arduinoSerialData.write('1')
             print("Dispensing Pill")
-    time.sleep(.365)
+    time.sleep(60)
 
 
