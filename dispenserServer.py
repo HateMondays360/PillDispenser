@@ -28,19 +28,15 @@ def main():
 def addTime():
     pillType = request.form['pills']
     print(pillType)
+    hour = request.form['hour']
+    minute = request.form['minute']
     if pillType == "pill1":
-        hour = request.form['hour']
-        minute = request.form['minute']
         Pill1_Minute_List.append(minute)
         Pill1_Hour_List.append(hour)
     elif pillType == "pill2":
-        hour = request.form['hour']
-        minute = request.form['minute']
         Pill2_Minute_List.append(minute)
         Pill2_Hour_List.append(hour)
     elif pillType == "pill3":
-        hour = request.form['hour']
-        minute = request.form['minute']
         Pill3_Minute_List.append(minute)
         Pill3_Hour_List.append(hour)
     templateData = {
