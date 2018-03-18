@@ -23,7 +23,7 @@ def converttomin(minute, hour, combined):
 
 
 def sort(arr):
-    count = [0]*1440
+    count = [0]*1441
     for a in arr:
         count[a] += 1
     i = 0
