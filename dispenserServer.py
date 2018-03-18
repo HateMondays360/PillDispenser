@@ -25,7 +25,7 @@ def sort(arr):
     i = 0
     for a in range(1441):
         for c in range(count[a]):
-            arr[i] = ag
+            arr[i] = a
             i += 1
     return arr
 
@@ -78,6 +78,7 @@ def addTime():
         Pill3_Hour_List[x] = int(Pill3Combined[x])
         Pill3_Minute_List[x] = (Pill3Combined[x]-Pill3_Hour_List[x])*(3/5)
 
+    print(Pill1_Hour_List, ":", Pill1_Minute_List)
     templateData = {
         'Pill1_Hour_List' : Pill1_Hour_List,
         'Pill1_Minute_List' : Pill1_Minute_List,
