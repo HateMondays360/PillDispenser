@@ -3,6 +3,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+div {
+    padding: 20px;
+}
+
 #gradient
 {
     width: 100%;
