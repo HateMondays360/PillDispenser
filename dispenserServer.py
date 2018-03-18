@@ -20,12 +20,12 @@ def converttomin(minute, hour, combined):
 
 def sort(arr):
     count = [0]*1441
-    for a in arr:
-        count[a] += 1
+    for x in range(len(arr)):
+        count[arr[x]] += 1
     i = 0
     for a in range(1441):
         for c in range(count[a]):
-            arr[i] = a
+            arr[i] = ag
             i += 1
     return arr
 
