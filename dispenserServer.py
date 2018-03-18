@@ -19,7 +19,7 @@ Pill3Combined = []
 def converttomin(minute, hour, combined):
     for x in range(len(hour)):
         hourtominute = int(hour[x])*60
-        combined.append(int(minute) + hourtominute)
+        combined.append(int(minute[x]) + hourtominute)
 
 
 def sort(arr):
