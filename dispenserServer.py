@@ -11,10 +11,6 @@ Pill2_Minute_List = []
 Pill3_Hour_List = []
 Pill3_Minute_List = []
 
-Pill1Combined = []
-Pill2Combined = []
-Pill3Combined = []
-
 
 def converttomin(minute, hour, combined):
     for x in range(len(hour)):
@@ -49,6 +45,9 @@ def main():
 
 @app.route("/", methods = ['POST'])
 def addTime():
+    Pill1Combined = []
+    Pill2Combined = []
+    Pill3Combined = []
     pillType = request.form['pills']
     print(pillType)
     hour = request.form['hour']
