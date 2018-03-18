@@ -1,0 +1,68 @@
+<html>
+
+  <body>
+
+    <h3>Add new Pill</h3>
+    <div id="addForm">
+      Pill Name: <input type="text" id="addPillName" />
+      <div id="addPillTimes"></div>
+      <button id="addAdditionalTime">Add another dose</button>
+      <button id="addPill">Add Pill</button>
+    </div>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+
+    let lastDose = 0;
+
+    function deleteDoseEntry(index) {
+      $(`#addPillTimes div[data-last-dose='${index}']`)
+        .remove();
+    }
+
+    function addDose() {
+      const doseIndex = ++lastDose;
+      const doseList = $("#addPillTimes");
+
+      const newDose = $("<div>")
+        .attr({
+          "data-last-dose": doseIndex,
+        })
+        .append(
+          $("<span>").text("Dose: ")
+        )
+        .append(
+          $("<input>")
+            .attr({
+              type: "text",
+              placeholder: "8am",
+            })
+            .addClass("timeInput")
+        )
+        .append(
+          $("<button>")
+            .click(() => deleteDoseEntry(doseIndex))
+            .text("Delete Dose")
+        );
+
+      doseList.append(newDose);
+    }
+
+    function addPill() {
+      const pillName = $("#addPillName").val();
+      const pillTimes = $("#addPillTimes > [data-last-dose]")
+        .map(el => $(".timeInput", el).val);
+      console.log(pillTimes);
+    }
+
+    addDose();
+
+    $("#addAdditionalTime").click(() => addDose());
+    $("#addPill").click(() => addPill());
+
+  </script>
+
+
+</html>

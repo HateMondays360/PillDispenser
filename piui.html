@@ -1,0 +1,114 @@
+<html>
+<section>
+  <script src="static/piui.js"></script>
+  <style>
+    h1{
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 5px;
+    }
+    table{
+      width:100%;
+    }
+    .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+    }
+    .tbl-content{
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+    }
+    th{
+    padding: 10px 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    }
+    td{
+    padding: 5px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+    }
+
+  /* demo styles */
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+    body{
+    background: -webkit-linear-gradient(left, #5ac8fa, #ff7aff);
+    background: linear-gradient(to right, #5ac8fa, #ff7aff);
+    font-family: 'Roboto', sans-serif;
+    }
+    section{
+    margin: 20px;
+    }
+
+    a.whiteLink {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+
+
+  <section>
+    <body onload="startTime()">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thread>
+          <tr>
+            <th>
+              <div id="txt"></div>
+            </th>
+            <th>
+              <h1><a class="whiteLink" href="/settings/">Settings</a></h1>
+            </th>
+          </tr>
+        </thread>
+      </table>
+    </body>
+  </section>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Pill</th>
+          <th>Next Dosage At:</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td>Pill 1</td>
+          <td>8AM </td>
+        </tr>
+        <tr>
+          <td>Pill 2</td>
+          <td>9AM</td>
+        </tr>
+        <tr>
+          <td>Pill 3</td>
+          <td>10AM</td>
+        </tr>
+        <tr>
+          <td>Pill 4</td>
+          <td>11AM</td>
+        </tr>
+        <tr>
+          <td>Pill 5</td>
+          <td>12PM </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</html>
