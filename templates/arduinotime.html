@@ -2,12 +2,14 @@
     
 <head>
     <!-- Link the stylesheet and js file to the html -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="../static/timescript.js"></script>
     <link rel="stylesheet" href="../static/stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700" rel="stylesheet">
 </head>
 
-<body onload="startTime()">
+<body onload="startTime()" id="gradient">
+
     <h2 id="txt"></h2>		<!-- This is where the current time will be displayed -->
     
     <!-- The input location -->
