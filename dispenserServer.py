@@ -14,20 +14,29 @@ Pill3_Minute_List = []
 
 def converttomin(minute, hour, combined):
     for x in range(len(hour)):
-        hourtominute = int(hour[x])*60
+        hourtominute = int(hour[x]) * 60
         combined.append(int(minute[x]) + hourtominute)
 
 
+def convert_back(combined, hour, minute):
+    for x in range(len(combined)):
+        temp = combined[x] / 60
+        hour[x] = int(temp)
+        minute[x] = combined[x] - (hour[x] * 60)
+
+
 def sort(arr):
-    count = [0]*1441
-    for x in range(len(arr)):
-        count[arr[x]] += 1
-    i = 0
+    output = [0 for i in range(1441)]
+    count = [0 for i in range(1441)]
+    for x in arr:
+        count[int(x)] += 1
     for a in range(1441):
-        for c in range(count[a]):
-            arr[i] = a
-            i += 1
-    return arr
+        count[a] += count[a - 1]
+    for i in range(len(arr)):
+        output[count[arr[i]] - 1] = arr[i]
+        count[arr[i]] -= 1
+    for i in range(len(arr)):
+        arr[i] = output[i]
 
 
 @app.route("/")
@@ -61,24 +70,19 @@ def addTime():
     elif pillType == "pill3":
         Pill3_Minute_List.append(minute)
         Pill3_Hour_List.append(hour)
+
     converttomin(Pill1_Minute_List, Pill1_Hour_List, Pill1Combined)
     converttomin(Pill2_Minute_List, Pill2_Hour_List, Pill2Combined)
     converttomin(Pill3_Minute_List, Pill3_Hour_List, Pill3Combined)
+
     sort(Pill1Combined)
     sort(Pill2Combined)
     sort(Pill3Combined)
 
-    for x in range(len(Pill1Combined)):
-        Pill1_Hour_List[x] = int(Pill1Combined[x])
-        Pill1_Minute_List[x] = (Pill1Combined[x]-Pill1_Hour_List[x])*(3/5)
-    for x in range(len(Pill2Combined)):
-        Pill2_Hour_List[x] = int(Pill2Combined[x])
-        Pill2_Minute_List[x] = (Pill2Combined[x]-Pill2_Hour_List[x])*(3/5)
-    for x in range(len(Pill3Combined)):
-        Pill3_Hour_List[x] = int(Pill3Combined[x])
-        Pill3_Minute_List[x] = (Pill3Combined[x]-Pill3_Hour_List[x])*(3/5)
+    convert_back(Pill1Combined, Pill1_Hour_List, Pill1_Minute_List)
+    convert_back(Pill2Combined, Pill2_Hour_List, Pill2_Minute_List)
+    convert_back(Pill3Combined, Pill3_Hour_List, Pill3_Minute_List)
 
-    print(Pill1_Hour_List, ":", Pill1_Minute_List)
     templateData = {
         'Pill1_Hour_List' : Pill1_Hour_List,
         'Pill1_Minute_List' : Pill1_Minute_List,
@@ -92,10 +96,10 @@ def addTime():
     return render_template('arduinotime.html', **templateData)
 
 
-
 def runapp():
     app.run(host = '0.0.0.0', port = 80, debug = True)
 
+
 if __name__ == '__main__':
     runapp()
-    
+
