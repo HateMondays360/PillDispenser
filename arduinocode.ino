@@ -7,8 +7,8 @@ void setup(){
   Serial.begin(9600); //set up serial monitor to be used for reading in
   pinMode(8, OUTPUT); //set up an LED pin
   Motor1.attach(13);   //set up a motor
-  Motor2.attach(13);   //set up a motor
-  Motor3.attach(13);   //set up a motor
+  Motor2.attach(12);   //set up a motor
+  Motor3.attach(11);   //set up a motor
   Motor1.write(90);    //make sure the motor is stopped
   Motor2.write(90);    //make sure the motor is stopped
   Motor3.write(90);    //make sure the motor is stopped
