@@ -39,7 +39,7 @@
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        {% if Pill1_Name == '' and Pill2_Name == '' and Pill3_Name == '' %}
+        {% if Pill1_Name == '' or Pill2_Name == '' or Pill3_Name == '' %}
         Name: <input type="text" name="name">
         {% endif %}
         Hour: <input type="text" name="hour">
