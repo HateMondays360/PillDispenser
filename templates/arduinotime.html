@@ -20,8 +20,18 @@
             {% else %}
             <option value="pill1">Add New</option>
             {% endif %}
+
+            {% if Pill2_Name != '' %}
             <option value="pill2">{{ Pill2_Name }}</option>
+            {% else %}
+            <option value="pill2">Add New</option>
+            {% endif %}
+
+            {% if Pill3_Name != '' %}
             <option value="pill3">{{ Pill3_Name }}</option>
+            {% else %}
+            <option value="pill3">Add New</option>
+            {% endif %}
         </select>
         <select name="numberPills">
             <option value="1">1</option>
