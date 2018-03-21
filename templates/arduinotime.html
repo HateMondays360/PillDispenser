@@ -15,9 +15,14 @@
 <div>
     <form action="/" method="post">
         <select name="pills">
-            <option value="pill1">Pill 1</option>
-            <option value="pill2">Pill 2</option>
-            <option value="pill3">Pill 3</option>
+            {% if Pill1_Name != '' %}
+            <option value="pill1">{{ Pill1_Name }}</option>
+            {% else %}
+            <option value="pill1">Add New</option>
+            {% endif %}
+            {% endelse %}
+            <option value="pill2">{{ Pill2_Name }}</option>
+            <option value="pill3">{{ Pill3_Name }}</option>
         </select>
         <select name="numberPills">
             <option value="1">1</option>
