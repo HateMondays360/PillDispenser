@@ -17,6 +17,34 @@ Pill3_Minute_List = []
 Pill3_Name=''
 Pill3_Num=0
 
+
+def converttomin(minute, hour, combined):
+    for x in range(len(hour)):
+        hourtominute = int(hour[x]) * 60
+        combined.append(int(minute[x]) + hourtominute)
+
+
+def convert_back(combined, hour, minute):
+    for x in range(len(combined)):
+        temp = combined[x] / 60
+        hour[x] = int(temp)
+        minute[x] = combined[x] - (hour[x] * 60)
+
+
+def sort(arr):
+    output = [0 for i in range(1441)]
+    count = [0 for i in range(1441)]
+    for x in arr:
+        count[int(x)] += 1
+    for a in range(1441):
+        count[a] += count[a - 1]
+    for i in range(len(arr)):
+        output[count[arr[i]] - 1] = arr[i]
+        count[arr[i]] -= 1
+    for i in range(len(arr)):
+        arr[i] = output[i]
+
+
 @app.route("/")
 def main():
     templateData = {
@@ -41,6 +69,7 @@ def main():
 
 @app.route("/", methods = ['POST'])
 def addTime():
+<<<<<<< HEAD
 
     global Pill1_Name
     global Pill2_Name
@@ -49,6 +78,11 @@ def addTime():
     global Pill2_Num
     global Pill3_Num
 
+=======
+    Pill1Combined = []
+    Pill2Combined = []
+    Pill3Combined = []
+>>>>>>> 2814f004d9318d4b91fe11001940cbde86ae5a78
     pillType = request.form['pills']
     numPills= request.form['Select # of Pills to be dispensed']
 
@@ -74,8 +108,23 @@ def addTime():
         Pill3_Name=name
         Pill3_Minute_List.append(minute)
         Pill3_Hour_List.append(hour)
+<<<<<<< HEAD
         Pill1_Num=numPills
 
+=======
+
+    converttomin(Pill1_Minute_List, Pill1_Hour_List, Pill1Combined)
+    converttomin(Pill2_Minute_List, Pill2_Hour_List, Pill2Combined)
+    converttomin(Pill3_Minute_List, Pill3_Hour_List, Pill3Combined)
+
+    sort(Pill1Combined)
+    sort(Pill2Combined)
+    sort(Pill3Combined)
+
+    convert_back(Pill1Combined, Pill1_Hour_List, Pill1_Minute_List)
+    convert_back(Pill2Combined, Pill2_Hour_List, Pill2_Minute_List)
+    convert_back(Pill3Combined, Pill3_Hour_List, Pill3_Minute_List)
+>>>>>>> 2814f004d9318d4b91fe11001940cbde86ae5a78
 
     templateData = {
         'Pill1_Hour_List' : Pill1_Hour_List,
@@ -99,9 +148,13 @@ def addTime():
     return render_template('arduinotime.html', **templateData)
 
 
-
 def runapp():
     app.run(debug=True, host = '0.0.0.0')
 
+
 if __name__ == '__main__':
     runapp()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2814f004d9318d4b91fe11001940cbde86ae5a78

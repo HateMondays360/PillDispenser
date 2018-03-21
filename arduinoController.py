@@ -54,11 +54,11 @@ while True:
             print("Dispensing Pill")
     for x in range(len(Pill2_Hour_List)):
         if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]):
-            arduinoSerialData.write('1')
+            arduinoSerialData.write('2')
             print("Dispensing Pill")
     for x in range(len(Pill3_Hour_List)):
         if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]):
-            arduinoSerialData.write('1')
+            arduinoSerialData.write('3')
             print("Dispensing Pill")
     time.sleep(60)
 
