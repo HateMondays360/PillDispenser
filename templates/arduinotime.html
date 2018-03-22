@@ -14,6 +14,7 @@
 <!-- The input location -->
 <div>
     <form action="/" method="post">
+        Pill:
         <select name="pills">
             {% if Pill1_Name != '' %}
             <option value="pill1">{{ Pill1_Name }}</option>
@@ -33,6 +34,7 @@
             <option value="pill3">Add New</option>
             {% endif %}
         </select>
+        Number of Pills:
         <select name="numberPills">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -48,6 +50,7 @@
 
     <p>Enter the hour in 24 hour time format and the minutes in their respective fields</p>
 
+    <br>
     <p>{{ Pill1_Name }}</p>
     <table cellpadding="0" cellspacing="0" border="0" id="pill1">
         <tbody>
@@ -60,6 +63,8 @@
         {% endfor %}
         </tbody>
     </table>
+    <br>
+    <br>
     <p>{{ Pill2_Name }}</p>
     <table cellpadding="0" cellspacing="0" border="0" id="pill2">
         <tbody>
@@ -72,6 +77,8 @@
         {% endfor %}
         </tbody>
     </table>
+    <br>
+    <br>
     <p>{{ Pill3_Name }}</p>
     <table cellpadding="0" cellspacing="0" border="0" id="pill3">
         <tbody>
