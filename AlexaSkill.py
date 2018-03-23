@@ -22,7 +22,7 @@ def gpio_control():
     Pill3_Minute_List = []
     pill1name = ''
     try:
-        r = requests.get("http://10.60.157.218")
+        r = requests.get("http://0.0.0.0:80")
         data = r.content
         page_soup = BeautifulSoup(data, "html.parser")
 
