@@ -49,10 +49,15 @@ def gpio_control():
 
     except Exception as e:
         return statement('You have no pills.')
-
+    first = True
     for x in range(len(Pill1_Hour_List)):
-        Pill1_Hour_List[x] %= 12
-        pills += 'and' + str(Pill1_Hour_List[x]) + str(Pill1_Minute_List[x])
+        if Pill1_Hour_List[x] > 12:
+            Pill1_Hour_List[x] %= 12
+        if first:
+            pills = str(Pill1_Hour_List[x]) + str(Pill1_Minute_List[x])
+            first = False
+        else:
+            pills += 'and' + str(Pill1_Hour_List[x]) + str(Pill1_Minute_List[x])
     return statement('You have {} at {}'.format(pill1name, pills))
 
 
