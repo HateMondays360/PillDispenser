@@ -21,6 +21,8 @@ def gpio_control():
     Pill3_Hour_List = []
     Pill3_Minute_List = []
     pill1name = ''
+    am_or_pm = []
+
     try:
         r = requests.get("http://0.0.0.0:80")
         data = r.content
@@ -53,11 +55,14 @@ def gpio_control():
     for x in range(len(Pill1_Hour_List)):
         if Pill1_Hour_List[x] > 12:
             Pill1_Hour_List[x] %= 12
+            am_or_pm.append('PM')
+        else:
+            am_or_pm.append('AM')
         if first:
-            pills = str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x])
+            pills = str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x]) + am_or_pm[x]
             first = False
         else:
-            pills += 'and' + str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x])
+            pills += 'and' + str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x]) + am_or_pm[x]
     return statement('You have {} at {}'.format(pill1name, pills))
 
 
