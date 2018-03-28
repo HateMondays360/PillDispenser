@@ -55,9 +55,9 @@ def gpio_control():
     for x in range(len(Pill1_Hour_List)):
         if Pill1_Hour_List[x] > 12:
             Pill1_Hour_List[x] %= 12
-            am_or_pm.append('PM')
+            am_or_pm.append(' PM ')
         else:
-            am_or_pm.append('AM')
+            am_or_pm.append(' AM ')
         if first:
             pills = str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x]) + am_or_pm[x]
             first = False
