@@ -54,10 +54,10 @@ def gpio_control():
         if Pill1_Hour_List[x] > 12:
             Pill1_Hour_List[x] %= 12
         if first:
-            pills = str(Pill1_Hour_List[x]) + str(Pill1_Minute_List[x])
+            pills = str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x])
             first = False
         else:
-            pills += 'and' + str(Pill1_Hour_List[x]) + str(Pill1_Minute_List[x])
+            pills += 'and' + str(Pill1_Hour_List[x]) + ' ' + str(Pill1_Minute_List[x])
     return statement('You have {} at {}'.format(pill1name, pills))
 
 
