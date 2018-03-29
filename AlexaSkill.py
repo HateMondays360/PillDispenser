@@ -26,7 +26,7 @@ def string_from_lists(HourList, MinuteList, am_or_pm, pill_name):
             first = False
         else:
             pills += ' and ' + str(HourList[x]) + ' ' + str(MinuteList[x]) + am_or_pm[x]
-    return pill_name + ' at ' + pills
+    return pill_name + ' at ' + pills + '. '
 
 
 @ask.intent('GPIOControlIntent', mapping={})
