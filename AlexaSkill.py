@@ -48,8 +48,8 @@ def gpio_control():
         pill2 = page_soup.findAll("td", {"class": "pill2Time"})
         pill3 = page_soup.findAll("td", {"class": "pill3Time"})
         pill1name = page_soup.find("p", {"id": "pill1name"}).text
-        pill2name = page_soup.fine("p", {"id": "pill2name"}).text
-        pill3name = page_soup.fine("p", {"id": "pill3name"}).text
+        pill2name = page_soup.find("p", {"id": "pill2name"}).text
+        pill3name = page_soup.find("p", {"id": "pill3name"}).text
 
         # Loop through all elements in the list of pill times and store them in lists
         for element in pill1:
@@ -75,7 +75,7 @@ def gpio_control():
             pills += string_from_lists(Pill3_Hour_List, Pill3_Minute_List, am_or_pm, pill3name)
         return statement('You have {}'.format(pills))
     except Exception as e:
-        return ("It did not work")
+        return 'it did not work'
 
 
 if __name__ == '__main__':
