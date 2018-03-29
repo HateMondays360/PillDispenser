@@ -32,7 +32,6 @@ def string_from_lists(HourList, MinuteList, am_or_pm, pill_name):
 @ask.intent('GPIOControlIntent', mapping={})
 def gpio_control():
     global first
-    first = True
     pills = ''
     Pill1_Hour_List = []
     Pill1_Minute_List = []
@@ -69,15 +68,20 @@ def gpio_control():
             Pill3_Hour_List.append(int(this_time[0]))
             Pill3_Minute_List.append(int(this_time[2]))
 
+        if len(Pill1_Hour_List) == 0 and len(Pill2_Hour_List) == 0 and len(Pill3_Hour_List) == 0:
+            return statement('You have no pills')
         if len(Pill1_Hour_List) > 0:
+            first = True
             pills += string_from_lists(Pill1_Hour_List, Pill1_Minute_List, am_or_pm, pill1name)
         if len(Pill2_Hour_List) > 0:
+            first = True
             pills += string_from_lists(Pill2_Hour_List, Pill2_Minute_List, am_or_pm, pill2name)
         if len(Pill3_Hour_List) > 0:
+            first = True
             pills += string_from_lists(Pill3_Hour_List, Pill3_Minute_List, am_or_pm, pill3name)
         return statement('You have {}'.format(pills))
     except Exception as e:
-        return 'it did not work'
+        return statement('There was an error')
 
 
 if __name__ == '__main__':
