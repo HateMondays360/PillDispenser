@@ -25,12 +25,14 @@ def string_from_lists(HourList, MinuteList, am_or_pm, pill_name):
             pills = str(HourList[x]) + ' ' + str(MinuteList[x]) + am_or_pm[x]
             first = False
         else:
-            pills += 'and' + str(HourList[x]) + ' ' + str(MinuteList[x]) + am_or_pm[x]
-    return pill_name + " at " + pills
+            pills += ' and ' + str(HourList[x]) + ' ' + str(MinuteList[x]) + am_or_pm[x]
+    return pill_name + ' at ' + pills
 
 
 @ask.intent('GPIOControlIntent', mapping={})
 def gpio_control():
+    global first
+    first = False
     pills = ''
     Pill1_Hour_List = []
     Pill1_Minute_List = []
