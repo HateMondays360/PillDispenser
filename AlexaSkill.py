@@ -32,7 +32,7 @@ def string_from_lists(HourList, MinuteList, am_or_pm, pill_name):
 @ask.intent('GPIOControlIntent', mapping={})
 def gpio_control():
     global first
-    first = False
+    first = True
     pills = ''
     Pill1_Hour_List = []
     Pill1_Minute_List = []
