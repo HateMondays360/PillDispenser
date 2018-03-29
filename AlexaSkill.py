@@ -68,9 +68,8 @@ def gpio_control():
             this_time = element.text.split()
             Pill3_Hour_List.append(int(this_time[0]))
             Pill3_Minute_List.append(int(this_time[2]))
-
-    except Exception as e:
-        return statement('You have no pills.')
+    # except Exception as e:
+    #     return statement('You have no pills.')
     if len(Pill1_Hour_List) > 0:
         pills += string_from_lists(Pill1_Hour_List, Pill1_Minute_List, am_or_pm, pill1name)
     if len(Pill2_Hour_List) > 0:
