@@ -13,10 +13,13 @@ while True:
     mp3 = False
     Pill1_Hour_List = []
     Pill1_Minute_List = []
+    Pill1_numpills = []
     Pill2_Hour_List = []
     Pill2_Minute_List = []
+    Pill2_numpills = []
     Pill3_Hour_List = []
     Pill3_Minute_List = []
+    Pill3_numpills = []
     # Get the website data from the URL
     r = requests.get("http://0.0.0.0:80")
     
@@ -25,23 +28,29 @@ while True:
     page_soup = BeautifulSoup(data, "html.parser")
 
     # Find and store all the time elements on the webpage
-    pill1 = page_soup.findAll("td", {"class":"pill1Time"})
-    pill2 = page_soup.findAll("td", {"class":"pill2Time"})
-    pill3 = page_soup.findAll("td", {"class":"pill3Time"})
+    pill1 = page_soup.findAll("td", {"class": "pill1Time"})
+    pill2 = page_soup.findAll("td", {"class": "pill2Time"})
+    pill3 = page_soup.findAll("td", {"class": "pill3Time"})
+    numpill1 = page_soup.findAll("td", {"class": "pill1num"})
+    numpill2 = page_soup.findAll("td", {"class": "pill2num"})
+    numpill3 = page_soup.findAll("td", {"class": "pill3num"})
 
     # Loop through all elements in the list of pill times and store them in lists
-    for element in pill1:
-        this_time = element.text.split()
+    for x in range(len(pill1)):
+        Pill1_numpills.append(int(numpill1[x].text))
+        this_time = pill1[x].text.split()
         Pill1_Hour_List.append(this_time[0])
         Pill1_Minute_List.append(this_time[2])
 
-    for element in pill2:
-        this_time = element.text.split()
+    for x in range(len(pill2)):
+        Pill2_numpills.append(int(numpill2[x].text))
+        this_time = pill2[x].text.split()
         Pill2_Hour_List.append(this_time[0])
         Pill2_Minute_List.append(this_time[2])
 
-    for element in pill3:
-        this_time = element.text.split()
+    for x in range(len(pill3)):
+        Pill3_numpills.append(int(numpill3[x].text))
+        this_time = pill3[x].text.split()
         Pill3_Hour_List.append(this_time[0])
         Pill3_Minute_List.append(this_time[2])
 
@@ -50,17 +59,17 @@ while True:
     print(now)
     for x in range(len(Pill1_Hour_List)):
         if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]):
-            arduinoSerialData.write('1')
+            arduinoSerialData.write(10 + Pill1_numpills[x])
             print("Dispensing Pill")
             mp3 = True
     for x in range(len(Pill2_Hour_List)):
         if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]):
-            arduinoSerialData.write('2')
+            arduinoSerialData.write(20 + Pill2_numpills[x])
             print("Dispensing Pill")
             mp3 = True
     for x in range(len(Pill3_Hour_List)):
         if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]):
-            arduinoSerialData.write('3')
+            arduinoSerialData.write(30 + Pill3_numpills[x])
             print("Dispensing Pill")
             mp3 = True
     if mp3:

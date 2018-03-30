@@ -6,16 +6,16 @@ app = Flask(__name__)
 
 Pill1_Hour_List = []
 Pill1_Minute_List = []
-Pill1_Name=''
-Pill1_Num=0
+Pill1_Name = ''
+Pill1_Num = 0
 Pill2_Hour_List = []
 Pill2_Minute_List = []
-Pill2_Name=''
-Pill2_Num=0
+Pill2_Name = ''
+Pill2_Num = 0
 Pill3_Hour_List = []
 Pill3_Minute_List = []
-Pill3_Name=''
-Pill3_Num=0
+Pill3_Name = ''
+Pill3_Num = 0
 
 
 def converttomin(minute, hour, combined):
@@ -48,25 +48,25 @@ def sort(arr):
 @app.route("/")
 def main():
     templateData = {
-        'Pill1_Hour_List' : Pill1_Hour_List,
-        'Pill1_Minute_List' : Pill1_Minute_List,
-        'Pill1_Name' : Pill1_Name,
-        'Pill1_Num' : Pill1_Num,
+        'Pill1_Hour_List': Pill1_Hour_List,
+        'Pill1_Minute_List': Pill1_Minute_List,
+        'Pill1_Name': Pill1_Name,
+        'Pill1_Num': Pill1_Num,
 
-        'Pill2_Hour_List' : Pill2_Hour_List,
-        'Pill2_Minute_List' : Pill2_Minute_List,
-        'Pill2_Name' : Pill2_Name,
-        'Pill2_Num' : Pill2_Num,
+        'Pill2_Hour_List': Pill2_Hour_List,
+        'Pill2_Minute_List': Pill2_Minute_List,
+        'Pill2_Name': Pill2_Name,
+        'Pill2_Num': Pill2_Num,
 
-        'Pill3_Hour_List' : Pill3_Hour_List,
-        'Pill3_Minute_List' : Pill3_Minute_List,
-        'Pill3_Name' : Pill3_Name,
-        'Pill3_Num' : Pill3_Num
+        'Pill3_Hour_List': Pill3_Hour_List,
+        'Pill3_Minute_List': Pill3_Minute_List,
+        'Pill3_Name': Pill3_Name,
+        'Pill3_Num': Pill3_Num
     }
     return render_template('arduinotime.html', **templateData)
 
 
-@app.route("/", methods = ['POST'])
+@app.route("/", methods=['POST'])
 def addTime():
     
     global Pill1_Name
@@ -86,7 +86,7 @@ def addTime():
     numPills = request.form['numberPills']
     hour = request.form['hour']
     minute = request.form['minute']
-    name=request.form['name']
+    name = request.form['name']
     
     if pillType == "pill1":
         Pill1_Name = name
@@ -119,29 +119,29 @@ def addTime():
     convert_back(Pill3Combined, Pill3_Hour_List, Pill3_Minute_List)
 
     templateData = {
-        'Pill1_Hour_List' : Pill1_Hour_List,
-        'Pill1_Minute_List' : Pill1_Minute_List,
-        'Pill1_Name' : Pill1_Name,
-        'Pill1_Num' : Pill1_Num,
+        'Pill1_Hour_List': Pill1_Hour_List,
+        'Pill1_Minute_List': Pill1_Minute_List,
+        'Pill1_Name': Pill1_Name,
+        'Pill1_Num': Pill1_Num,
 
-        'Pill2_Hour_List' : Pill2_Hour_List,
-        'Pill2_Minute_List' : Pill2_Minute_List,
-        'Pill2_Name' : Pill2_Name,
-        'Pill2_Num' : Pill2_Num,
+        'Pill2_Hour_List': Pill2_Hour_List,
+        'Pill2_Minute_List': Pill2_Minute_List,
+        'Pill2_Name': Pill2_Name,
+        'Pill2_Num': Pill2_Num,
 
-        'Pill3_Hour_List' : Pill3_Hour_List,
-        'Pill3_Minute_List' : Pill3_Minute_List,
-        'Pill3_Name' : Pill3_Name,
-        'Pill3_Num' : Pill3_Num,
+        'Pill3_Hour_List': Pill3_Hour_List,
+        'Pill3_Minute_List': Pill3_Minute_List,
+        'Pill3_Name': Pill3_Name,
+        'Pill3_Num': Pill3_Num,
 
-        'pillType' : pillType
+        'pillType': pillType
     }
     
     return render_template('arduinotime.html', **templateData)
 
 
 def runapp():
-    app.run(host = '0.0.0.0', port = 80, debug = True)
+    app.run(host='0.0.0.0', port=80, debug=True)
 
 
 if __name__ == '__main__':
