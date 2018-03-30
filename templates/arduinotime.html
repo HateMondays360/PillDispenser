@@ -57,7 +57,7 @@
         <!-- Don't touch this stuff! -->
         {% for x in range(0, Pill1_Hour_List|length) %}
         <tr>
-            <td class="pill1num">Number of Pills: {{ Pill1_Num }}</td>
+            <td class="pill1num">{{ Pill1_Num }}</td>
             <td class="pill1Time"> {{ Pill1_Hour_List[x] }} : {{ Pill1_Minute_List[x] }}</td>
         </tr>
         {% endfor %}
@@ -71,7 +71,7 @@
         <!-- Don't touch this stuff! -->
         {% for x in range(0, Pill2_Hour_List|length) %}
         <tr>
-            <td class="pill2num">Number of Pills: {{ Pill2_Num }}</td>
+            <td class="pill2num">{{ Pill2_Num }}</td>
             <td class="pill2Time"> {{ Pill2_Hour_List[x] }} : {{ Pill2_Minute_List[x] }}</td>
         </tr>
         {% endfor %}
@@ -85,7 +85,7 @@
         <!-- Don't touch this stuff! -->
         {% for x in range(0, Pill3_Hour_List|length) %}
         <tr>
-            <td class="pill3num">Number of Pills: {{ Pill3_Num }}</td>
+            <td class="pill3num">{{ Pill3_Num }}</td>
             <td class="pill3Time"> {{ Pill3_Hour_List[x] }} : {{ Pill3_Minute_List[x] }}</td>
         </tr>
         {% endfor %}
