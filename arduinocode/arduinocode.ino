@@ -15,11 +15,12 @@ void setup(){
 }
 
 void loop(){
+  int data=0, num=0;
   Motor1.write(90);    //make sure the motor is stopped
   Motor2.write(90);    //make sure the motor is stopped
   Motor3.write(90);    //make sure the motor is stopped
   if(Serial.available())  //if the serial monitor is open then read it
-    data = Serial.read();
+    data = int(Serial.read());
     n = data/10;
     num = data%10;
   if(n==1){               //will read a one from the parent python program

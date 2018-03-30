@@ -59,17 +59,17 @@ while True:
     print(now)
     for x in range(len(Pill1_Hour_List)):
         if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]):
-            arduinoSerialData.write(10 + int(Pill1_numpills[x]))
+            arduinoSerialData.write(str(10 + Pill1_numpills[x]))
             print("Dispensing Pill")
             mp3 = True
     for x in range(len(Pill2_Hour_List)):
         if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]):
-            arduinoSerialData.write(20 + int(Pill2_numpills[x]))
+            arduinoSerialData.write(str(20 + Pill2_numpills[x]))
             print("Dispensing Pill")
             mp3 = True
     for x in range(len(Pill3_Hour_List)):
         if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]):
-            arduinoSerialData.write(30 + int(Pill3_numpills[x]))
+            arduinoSerialData.write(str(30 + Pill3_numpills[x]))
             print("Dispensing Pill")
             mp3 = True
     if mp3:
