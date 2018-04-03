@@ -29,6 +29,7 @@ def convert_back(combined, hour, minute):
         temp = combined[x] / 60
         hour[x] = int(temp)
         minute[x] = combined[x] - (hour[x] * 60)
+        format(minute[x], "02")
 
 
 def sort(arr):
