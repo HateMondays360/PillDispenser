@@ -37,6 +37,7 @@ p {
 }
 h2 {
     text-align: center !important;
+    color: #fff;
 }
 #gradient
 {
@@ -56,17 +57,8 @@ h1 {
 }
 
 table {
-      width:100%;
-}
-
-.tbl-header {
-    background-color: rgba(255,255,255,0.3);
-}
-
-.tbl-content {
-    overflow-x:auto;
-    margin-top: 0px;
-    border: 1px solid rgba(255,255,255,0.3);
+    width:100%;
+    display: inline-block;
 }
 
 th {
@@ -76,6 +68,12 @@ th {
     font-size: 15px;
     color: #fff;
     text-transform: uppercase;
+}
+
+p, label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 td {
