@@ -7,15 +7,15 @@ app = Flask(__name__)
 Pill1_Hour_List = []
 Pill1_Minute_List = []
 Pill1_Name = ''
-Pill1_Num = 0
+Pill1_Num = []
 Pill2_Hour_List = []
 Pill2_Minute_List = []
 Pill2_Name = ''
-Pill2_Num = 0
+Pill2_Num = []
 Pill3_Hour_List = []
 Pill3_Minute_List = []
 Pill3_Name = ''
-Pill3_Num = 0
+Pill3_Num = []
 
 
 def converttomin(minute, hour, combined):
@@ -73,9 +73,6 @@ def addTime():
     global Pill1_Name
     global Pill2_Name
     global Pill3_Name
-    global Pill1_Num
-    global Pill2_Num
-    global Pill3_Num
     
     Pill1Combined = []
     Pill2Combined = []
@@ -91,19 +88,19 @@ def addTime():
     
     if pillType == "pill1":
         Pill1_Name = name
-        Pill1_Num = numPills
+        Pill1_Num.append(numPills)
         Pill1_Minute_List.append(minute)
         Pill1_Hour_List.append(hour)
         
     elif pillType == "pill2":
         Pill2_Name = name
-        Pill2_Num = numPills
+        Pill2_Num.append(numPills)
         Pill2_Minute_List.append(minute)
         Pill2_Hour_List.append(hour)
         
     elif pillType == "pill3":
         Pill3_Name = name
-        Pill3_Num = numPills
+        Pill3_Num.append(numPills)
         Pill3_Minute_List.append(minute)
         Pill3_Hour_List.append(hour)
 
