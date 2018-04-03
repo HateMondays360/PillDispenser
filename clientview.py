@@ -4,23 +4,21 @@ import requests
 
 app = Flask(__name__)
 
-Pill1_Hour_List = []
-Pill1_Minute_List = []
-Pill1_Name = ''
-Pill1_Num = []
-Pill2_Hour_List = []
-Pill2_Minute_List = []
-Pill2_Name = ''
-Pill2_Num = []
-Pill3_Hour_List = []
-Pill3_Minute_List = []
-Pill3_Name = ''
-Pill3_Num = []
-
 URL = "0.0.0.0:80"  # Get the website data from the URL
 
 @app.route("/")
 def main():
+    Pill1_Hour_List = []
+    Pill1_Minute_List = []
+    Pill1_Num = []
+    Pill2_Hour_List = []
+    Pill2_Minute_List = []
+    Pill2_Name = ''
+    Pill2_Num = []
+    Pill3_Hour_List = []
+    Pill3_Minute_List = []
+    Pill3_Name = ''
+    Pill3_Num = []
     r = requests.get("http://0.0.0.0:80")
 
     # Grab and transcribe the raw html using Beautiful Soup
@@ -31,6 +29,9 @@ def main():
     pill1 = page_soup.findAll("td", {"class": "pill1Time"})
     pill2 = page_soup.findAll("td", {"class": "pill2Time"})
     pill3 = page_soup.findAll("td", {"class": "pill3Time"})
+    Pill1_Name = page_soup.find("p", {"id": "pill1name"}).text
+    Pill2_Name = page_soup.find("p", {"id": "pill2name"}).text
+    Pill3_Name = page_soup.find("p", {"id": "pill3name"}).text
     numpill1 = page_soup.findAll("td", {"class": "pill1num"})
     numpill2 = page_soup.findAll("td", {"class": "pill2num"})
     numpill3 = page_soup.findAll("td", {"class": "pill3num"})
