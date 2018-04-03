@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
     <!-- Link the stylesheet and js file to the html -->
+    <meta http-equiv="refresh" content="30">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="../static/timescript.js"></script>
     <link rel="stylesheet" href="../static/stylesheet.css?q=128054978"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700" rel="stylesheet">
-    <script>
-        var refreshId = setInterval(function () {
-            $('#responsecontainer').fadeOut("slow").load('/').fadeIn("slow");
-        }, 60000);
-    </script>
 </head>
 
 <body onload="startTime()" id="gradient">
