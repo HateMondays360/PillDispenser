@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <!-- Link the stylesheet and js file to the html -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
@@ -14,8 +15,9 @@
 <!-- The input location -->
 <div>
     <form action="/" method="post">
-        Pill:
-        <select name="pills">
+        <label for="pills">Pill</label>
+        <br>
+        <select name="pills" id="pills" onchange="chkind()">
             {% if Pill1_Name != '' %}
             <option value="pill1">{{ Pill1_Name }}</option>
             {% else %}
@@ -34,22 +36,35 @@
             <option value="pill3">Add New</option>
             {% endif %}
         </select>
-        Number of Pills:
-        <select name="numberPills">
+        <br>
+
+        <label for="name">Name of the pill</label>
+        <br>
+        <input id="name" type="text" name="name" placeholder="Reenter the Name">
+        <br>
+
+        <label for="numberpills">Number of pills</label>
+        <br>
+        <select name="numberPills" id="numberpills">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        Name: <input type="text" name="name">
-        Hour: <input type="text" name="hour">
-        Minute: <input type="text" name="minute">
+        <br>
+
+        <label for="hour">Hour</label>
+        <br>
+        <input id="hour" type="text" name="hour" placeholder="0-24">
+        <br>
+
+        <label for="minute">Minute</label>
+        <br>
+        <input id="minute" type="text" name="minute" placeholder="0-59">
+        <br>
 
         <input type="submit" name="form" value="Add Time"/>
     </form>
-
-    <p>Enter the hour in 24 hour time format and the minutes in their respective fields</p>
-
     <br>
     <p id="pill1name">{{ Pill1_Name }}</p>
     <table cellpadding="0" cellspacing="0" border="0" id="pill1">

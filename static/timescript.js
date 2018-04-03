@@ -78,3 +78,13 @@ function updateGradient()
 }
 
 setInterval(updateGradient,10);
+
+function chkind(){
+    var dropdown1 = document.getElementById('pills');
+    var a = dropdown1.options[pills.selectedIndex].text;
+    if(a === 'Add New'){
+        a = ' ';
+    }
+    var name = document.getElementById('name');
+    name.value = a;
+}
