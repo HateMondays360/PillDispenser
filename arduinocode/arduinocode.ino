@@ -50,7 +50,7 @@ void loop() {
   }
   if (n == 1) {           //will read a one from the parent python program
     Motor1.write(0);       //turn the motor on
-    delay(2600 * num);          //wait three seconds
+    delay(1300 * num);          //wait three seconds
     Motor1.write(90);
     n = 0;                  //set n back to 0 so it doesn't enter again
     num = 0;
@@ -58,7 +58,7 @@ void loop() {
   }
   if (n == 2) {           //will read a one from the parent python program
     Motor2.write(0);       //turn the motor on
-    delay(2600 * num);          //wait three seconds
+    delay(1300 * num);          //wait three seconds
     Motor2.write(90);
     n = 0;                  //set n back to 0 so it doesn't enter again
     num = 0;
@@ -66,7 +66,7 @@ void loop() {
   }
   else if (n1 == 2) {
     Motor2.write(0);
-    delay(2600 * num1);
+    delay(1300 * num1);
     Motor2.write(90);
     n1 = 0;
     num1 = 0;
@@ -74,7 +74,7 @@ void loop() {
   }
   if (n == 3) {           //will read a one from the parent python program
     Motor3.write(0);       //turn the motor on
-    delay(2600 * num);          //wait three seconds
+    delay(1300 * num);          //wait three seconds
     Motor3.write(90);
     n = 0;                  //set n back to 0 so it doesn't enter again
     num = 0;
@@ -82,7 +82,7 @@ void loop() {
   }
   else if (n1 == 3) {
     Motor3.write(0);
-    delay(2600 * num1);
+    delay(1300 * num1);
     Motor3.write(90);
     n1 = 0;
     num1 = 0;
@@ -90,7 +90,7 @@ void loop() {
   }
   else if (n2 == 3) {           //will read a one from the parent python program
     Motor3.write(0);       //turn the motor on
-    delay(2600 * num2);          //wait three seconds
+    delay(1300 * num2);          //wait three seconds
     Motor3.write(90);
     n2 = 0;                  //set n back to 0 so it doesn't enter again
     num2 = 0;
@@ -98,7 +98,7 @@ void loop() {
   }
   if (water) {
     Water.write(70);
-    delay(40000);
+    delay(4000);
     water = false;
   }
 }
