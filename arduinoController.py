@@ -10,7 +10,6 @@ URL = "0.0.0.0:80"
 
 arduinoSerialData.write('1')
 while True:
-    mp3 = False
     Pill1_Hour_List = []
     Pill1_Minute_List = []
     Pill1_numpills = []
@@ -61,19 +60,14 @@ while True:
         if now.hour == int(Pill1_Hour_List[x]) and now.minute == int(Pill1_Minute_List[x]):
             arduinoSerialData.write(str(10 + Pill1_numpills[x]))
             print("Dispensing Pill")
-            mp3 = True
     for x in range(len(Pill2_Hour_List)):
         if now.hour == int(Pill2_Hour_List[x]) and now.minute == int(Pill2_Minute_List[x]):
             arduinoSerialData.write(str(20 + Pill2_numpills[x]))
             print("Dispensing Pill")
-            mp3 = True
     for x in range(len(Pill3_Hour_List)):
         if now.hour == int(Pill3_Hour_List[x]) and now.minute == int(Pill3_Minute_List[x]):
             arduinoSerialData.write(str(30 + Pill3_numpills[x]))
             print("Dispensing Pill")
-            mp3 = True
-    if mp3:
-        os.system('omxplayer -o local pillsdispensed.mp3')
     time.sleep(60)
 
 
