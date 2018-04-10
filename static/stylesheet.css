@@ -31,7 +31,7 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 100% !important;
     width: 100% !important;
-    overflow: auto;
+    /*overflow: auto;*/
     overflow-x:hidden;
     background: url("../static/stations_boston1.jpg") center center/cover no-repeat fixed;
 }
