@@ -97,8 +97,8 @@ void loop() {
     water = true;
   }
   if (water) {
-    Water.write(70);
-    delay(4000);
+    Water.write(90);
+    delay(6000);
     water = false;
   }
 }
