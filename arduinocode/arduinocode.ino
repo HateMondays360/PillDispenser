@@ -1,13 +1,13 @@
 #include <Servo.h>
 
 Servo Motor1, Motor2, Motor3, Water;
-bool water;
+bool water = false;
 void setup() {
   Serial.begin(9600); //set up serial monitor to be used for reading in
   Motor1.attach(9);   //set up a motor
   Motor2.attach(10);   //set up a motor
   Motor3.attach(11);   //set up a motor
-  Water.attach(12);
+  Water.attach(8);
   Motor1.write(90);    //make sure the motor is stopped
   Motor2.write(90);    //make sure the motor is stopped
   Motor3.write(90);    //make sure the motor is stopped
@@ -99,6 +99,7 @@ void loop() {
   if (water) {
     Water.write(90);
     delay(6000);
+    Water.write(0);
     water = false;
   }
 }
