@@ -4,73 +4,89 @@ import requests
 
 app = Flask(__name__)
 
-URL = "0.0.0.0:80"  # Get the website data from the URL
+URL = "0.0.0.0:80"  # Get the website data from the URL which is hosted locally
+
 
 @app.route("/")
 def main():
-    Pill1_Hour_List = []
-    Pill1_Minute_List = []
-    Pill1_Num = []
-    Pill2_Hour_List = []
-    Pill2_Minute_List = []
-    Pill2_Name = ''
-    Pill2_Num = []
-    Pill3_Hour_List = []
-    Pill3_Minute_List = []
-    Pill3_Name = ''
-    Pill3_Num = []
+    # Create a list for hours and minutes of each pill and how many pills and a string for each pill name
+    pill1_name = ''
+    pill1_hour_list = []
+    pill1_minute_list = []
+    pill1_num = []
+    pill2_hour_list = []
+    pill2_minute_list = []
+    pill2_name = ''
+    pill2_num = []
+    pill3_hour_list = []
+    pill3_minute_list = []
+    pill3_name = ''
+    pill3_num = []
+
+    # Open the html page for scraping
     r = requests.get("http://0.0.0.0:80")
 
     # Grab and transcribe the raw html using Beautiful Soup
     data = r.content
     page_soup = BeautifulSoup(data, "html.parser")
 
-    # Find and store all the time elements on the webpage
+    # Find and store all the time elements on the web page
     pill1 = page_soup.findAll("td", {"class": "pill1Time"})
     pill2 = page_soup.findAll("td", {"class": "pill2Time"})
     pill3 = page_soup.findAll("td", {"class": "pill3Time"})
-    Pill1_Name = page_soup.find("p", {"id": "pill1name"}).text
-    Pill2_Name = page_soup.find("p", {"id": "pill2name"}).text
-    Pill3_Name = page_soup.find("p", {"id": "pill3name"}).text
+    pill1_name = page_soup.find("p", {"id": "pill1name"}).text
+    pill2_name = page_soup.find("p", {"id": "pill2name"}).text
+    pill3_name = page_soup.find("p", {"id": "pill3name"}).text
     numpill1 = page_soup.findAll("td", {"class": "pill1num"})
     numpill2 = page_soup.findAll("td", {"class": "pill2num"})
     numpill3 = page_soup.findAll("td", {"class": "pill3num"})
 
     # Loop through all elements in the list of pill times and store them in lists
     for x in range(len(pill1)):
-        Pill1_Num.append(int(numpill1[x].text))
+        # Add the number of pills in the list
+        pill1_num.append(int(numpill1[x].text))
+
+        # Split the pill times into hours and minutes and add to respective lists
         this_time = pill1[x].text.split()
-        Pill1_Hour_List.append(this_time[0])
-        Pill1_Minute_List.append(this_time[2])
+        pill1_hour_list.append(this_time[0])
+        pill1_minute_list.append(this_time[2])
 
     for x in range(len(pill2)):
-        Pill2_Num.append(int(numpill2[x].text))
+        # Add the number of pills in the list
+        pill2_num.append(int(numpill2[x].text))
+
+        # Split the pill times into hours and minutes and add to respective lists
         this_time = pill2[x].text.split()
-        Pill2_Hour_List.append(this_time[0])
-        Pill2_Minute_List.append(this_time[2])
+        pill2_hour_list.append(this_time[0])
+        pill2_minute_list.append(this_time[2])
 
     for x in range(len(pill3)):
-        Pill3_Num.append(int(numpill3[x].text))
+        # Add the number of pills in the list
+        pill3_num.append(int(numpill3[x].text))
+
+        # Split the pill times into hours and minutes and add to respective lists
         this_time = pill3[x].text.split()
-        Pill3_Hour_List.append(this_time[0])
-        Pill3_Minute_List.append(this_time[2])
+        pill3_hour_list.append(this_time[0])
+        pill3_minute_list.append(this_time[2])
 
     templateData = {
-        'Pill1_Hour_List': Pill1_Hour_List,
-        'Pill1_Minute_List': Pill1_Minute_List,
-        'Pill1_Name': Pill1_Name,
-        'Pill1_Num': Pill1_Num,
+        'pill1_hour_list': pill1_hour_list,
+        'pill1_minute_list': pill1_minute_list,
+        'Pill1_Name': pill1_name,
+        'pill1_num': pill1_num,
 
-        'Pill2_Hour_List': Pill2_Hour_List,
-        'Pill2_Minute_List': Pill2_Minute_List,
-        'Pill2_Name': Pill2_Name,
-        'Pill2_Num': Pill2_Num,
+        'pill2_hour_list': pill2_hour_list,
+        'pill2_minute_list': pill2_minute_list,
+        'pill2_name': pill2_name,
+        'pill2_num': pill2_num,
 
-        'Pill3_Hour_List': Pill3_Hour_List,
-        'Pill3_Minute_List': Pill3_Minute_List,
-        'Pill3_Name': Pill3_Name,
-        'Pill3_Num': Pill3_Num
+        'pill3_hour_list': pill3_hour_list,
+        'pill3_minute_list': pill3_minute_list,
+        'pill3_name': pill3_name,
+        'pill3_num': pill3_num
     }
+
+    # Render the template with the data above and the file clientview.html
     return render_template('clientview.html', **templateData)
 
 

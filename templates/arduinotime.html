@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <!-- Link the stylesheet and js file to the html -->
+    <!-- We using bootstrap up in here ;) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="../static/timescript.js"></script>
     <link rel="stylesheet" href="../static/stylesheet.css?q=128054978"/>
@@ -19,6 +20,7 @@
     <form action="/" method="post">
         <label for="pills">Pill</label>
         <br>
+        <!-- Jinja is used to display the correct pill stuff -->
         <select name="pills" id="pills" onchange="chkind()">
             {% if Pill1_Name != '' %}
             <option value="pill1">{{ Pill1_Name }}</option>
@@ -77,7 +79,7 @@
                     <th>Number of Pills</th>
                     <th>Time Dispensed</th>
                 </tr>
-                <!-- Don't touch this stuff! -->
+                <!-- This uses Jinja which takes the data from the python/flask file and uses it as variables -->
                 {% for x in range(0, Pill1_Hour_List|length) %}
                 <tr>
                     <td class="pill1num">{{ Pill1_Num[x] }}</td>
@@ -91,7 +93,7 @@
             <p id="pill2name">{{ Pill2_Name }}</p>
             <table id="pill2">
                 <tbody>
-                <!-- Don't touch this stuff! -->
+                <!-- This uses Jinja which takes the data from the python/flask file and uses it as variables -->
                 <tr>
                     <th>Number of Pills</th>
                     <th>Time Dispensed</th>
@@ -113,7 +115,7 @@
                     <th>Number of Pills</th>
                     <th>Time Dispensed</th>
                 </tr>
-                <!-- Don't touch this stuff! -->
+                <!-- This uses Jinja which takes the data from the python/flask file and uses it as variables -->
                 {% for x in range(0, Pill3_Hour_List|length) %}
                 <tr>
                     <td class="pill3num">{{ Pill3_Num[x] }}</td>
