@@ -9,21 +9,21 @@ The pill dispenser hosts a webpage that the doctor or caretaker can access and i
 Additionally, an Alexa Skill was created where the user can ask when the pills will be dispensed and Alexa will respond accordingly. 
 
 Physical Components used were:
-  3 Continuous rotation Servos
-  1 180 degree Servo
-  A Neopixel Light Strip
-  Sparkfun Redboard
-  Protoboard
-  Arduino Micro
-  Raspberry Pi 3
-  2.8" GPIO Controlled Touch Scrren for the Raspberry Pi
-  Water Balloon Valve
-  Wood
-  Hotglue
-  Stain (Dark Chestnut)
-  Velcro
-  Acrylic Strips
-  Wire
+  3 Continuous rotation Servos,
+  1 180 degree Servo,
+  A Neopixel Light Strip,
+  Sparkfun Redboard,
+  Protoboard,
+  Arduino Micro,
+  Raspberry Pi 3,
+  2.8" GPIO Controlled Touch Scrren for the Raspberry Pi,
+  Water Balloon Valve,
+  Wood,
+  Hotglue,
+  Stain (Dark Chestnut),
+  Velcro,
+  Acrylic Strips,
+  Wire,
   
 In terms of Software...
-  All the above code was used and implemented onto the Raspberry Pi. A tunneling service known as pagekite was used to host both the doctor   end of the dispenserServer.py and the AlexaSkill.py. Additional libraries include datetime, time, serial, flask, flask-ask, requests, and     Beautiful Soup.
+  All the above code was used and implemented onto the Raspberry Pi. A tunneling service known as pagekite was used to host both the doctor   end of the dispenserServer.py and the AlexaSkill.py. Additional libraries include datetime, time, serial, flask, flask-ask, requests, and   Beautiful Soup.
