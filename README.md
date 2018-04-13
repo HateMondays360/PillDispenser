@@ -1,5 +1,7 @@
 # PillDispenser
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/V9uTrwy9Qtg/0.jpg)](https://www.youtube.com/watch?v=V9uTrwy9Qtg)
+
 This project was completed as part of a Cornerstone of Engineering project at Northeastern University.
 Participating members were Matthew Swenson, Oscar Chen, and myself.
 
